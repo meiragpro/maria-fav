@@ -15,7 +15,7 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
 <article class="card">
   <a href={href} class="thumb-link">
     <img src={image} alt={title} loading="lazy" />
-    {rating === 5 && <span class="badge">Maria's pick</span>}
+    {rating === 5 && <span class="badge">♡ Maria's pick</span>}
   </a>
   <div class="body">
     {stars && <p class="stars">{stars}</p>}
@@ -34,7 +34,7 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
     display: block;
     position: relative;
     aspect-ratio: 4 / 3;
-    background: #f3eee6;
+    background: #faeef0;
     overflow: hidden;
   }
   .thumb-link img {
@@ -68,8 +68,8 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     font-weight: 600;
-    padding: 0.35rem 0.7rem;
-    border-radius: 2px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
     backdrop-filter: blur(4px);
   }
   .body { padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
@@ -80,15 +80,16 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
   .row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
   .price { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
   .buy {
-    color: var(--accent-dark);
+    background: var(--accent);
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
+    letter-spacing: 0.3px;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
     white-space: nowrap;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, transform 0.15s ease;
   }
-  .buy:hover { color: var(--ink); border-color: var(--ink); }
+  .buy:hover { background: var(--accent-dark); transform: translateY(-1px); }
 </style>
