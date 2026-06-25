@@ -1,7 +1,7 @@
 ---
 title: "celimax The Vita A Retinal Shot"
 description: "A gentle retinal serum that's visibly softened my wrinkles."
-image: "/images/placeholder.svg"
+image: "https://m.media-amazon.com/images/I/51utpRckeQL._SL1500_.jpg"
 amazonUrl: "https://amzn.to/3Ssqtdy"
 rating: 5
 pubDate: 2026-06-25
