@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout>
+  <section class="intro">
+    <p class="eyebrow">The Edit</p>
+    <h1>Favorites, curated</h1>
+    <p class="lede">
+      Every piece here is something I personally use and love. No fluff — just the
+      good stuff, gathered in one place.
+    </p>
+  </section>
+
+  <section class="grid">
+    {posts.map((post) => (
+      <ProductCard
+        title={post.data.title}
+        description={post.data.description}
+        image={post.data.image}
+        href={`/posts/${post.slug}/`}
+        amazonUrl={post.data.amazonUrl}
+        price={post.data.price}
+        rating={post.data.rating}
+      />
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .intro { text-align: center; padding: 1.5rem 0 3rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+  }
+  .intro h1 {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0 0 0.8rem;
+    line-height: 1.1;
+  }
+  .lede { color: var(--muted); max-width: 540px; margin: 0 auto; font-size: 1.05rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 2rem;
+  }
+</style>
