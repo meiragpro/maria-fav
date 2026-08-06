@@ -12,8 +12,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-const { title, description, image, amazonUrl, price, rating } = post.data;
+const { title, description, image, amazonUrl, price, rating, verdict, rank, rankNote } = post.data;
 const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
+const call = verdict ?? (rating === 5 ? 'ship' : undefined);
 ---
 
 <Layout title={`${title} — Ship or Skip`} description={description}>
@@ -24,6 +25,13 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
       {stars && <p class="stars">{stars}</p>}
       <h1>{title}</h1>
       <p class="sub">{description}</p>
+      {call && (
+        <p class="verdict-row">
+          <span class:list={["verdict", call]}>{call === 'ship' ? 'Ship' : 'Skip'}</span>
+          {rank && <span class="rank-chip">#{rank} of the K-beauty trio</span>}
+        </p>
+      )}
+      {rankNote && <p class="rank-note">{rankNote}</p>}
     </header>
 
     <img class="hero" src={image} alt={title} />
@@ -44,6 +52,41 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
 
 <style>
   .post { max-width: 680px; margin: 0 auto; }
+  .verdict-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 0.9rem 0 0;
+  }
+  .verdict {
+    font-size: 0.72rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+  .verdict.ship { background: #2f7a5a; color: #fff; }
+  .verdict.skip { background: #b23b3b; color: #fff; }
+  .rank-chip {
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .rank-note {
+    max-width: 560px;
+    margin: 1rem auto 0;
+    padding: 0.7rem 1rem;
+    background: #fbf1f3;
+    border-left: 2px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--ink);
+  }
   .back {
     display: inline-block;
     margin-bottom: 1.5rem;

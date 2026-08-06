@@ -7,20 +7,29 @@ interface Props {
   amazonUrl: string;
   price?: string;
   rating?: number;
+  verdict?: 'ship' | 'skip';
+  rank?: number;
+  rankNote?: string;
 }
-const { title, description, image, href, amazonUrl, price, rating } = Astro.props;
+const { title, description, image, href, amazonUrl, price, rating, verdict, rank, rankNote } =
+  Astro.props;
 const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
+// Fall back to the old 5-star convention for any post written before
+// `verdict` existed.
+const call = verdict ?? (rating === 5 ? 'ship' : undefined);
 ---
 
 <article class="card">
   <a href={href} class="thumb-link">
     <img src={image} alt={title} loading="lazy" />
-    {rating === 5 && <span class="badge">Ship</span>}
+    {rank && <span class="rank">#{rank}</span>}
+    {call && <span class:list={["badge", call]}>{call === 'ship' ? 'Ship' : 'Skip'}</span>}
   </a>
   <div class="body">
     {stars && <p class="stars">{stars}</p>}
     <h2><a href={href}>{title}</a></h2>
     <p class="desc">{description}</p>
+    {rankNote && <p class="rank-note">{rankNote}</p>}
     <div class="row">
       {price && <span class="price">{price}</span>}
       <a class="buy" href={amazonUrl} target="_blank" rel="nofollow sponsored noopener">
@@ -61,16 +70,40 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
   .badge {
     position: absolute;
     top: 0.85rem;
-    left: 0.85rem;
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--accent-dark);
+    right: 0.85rem;
     font-size: 0.68rem;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    font-weight: 600;
-    padding: 0.35rem 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
     backdrop-filter: blur(4px);
+  }
+  .badge.ship { background: #2f7a5a; color: #fff; }
+  .badge.skip { background: #b23b3b; color: #fff; }
+
+  .rank {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.4rem 0.6rem;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+  .rank-note {
+    font-size: 0.86rem;
+    color: var(--ink);
+    background: #fbf1f3;
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0.7rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0 0 1.1rem;
   }
   .body { padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
   .stars { color: var(--accent); margin: 0 0 0.35rem; letter-spacing: 3px; font-size: 0.85rem; }

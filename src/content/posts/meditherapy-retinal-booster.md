@@ -4,6 +4,9 @@ description: "A gentle retinaldehyde serum I use morning and night."
 image: "https://m.media-amazon.com/images/I/41AJvdilT1L._SL1000_.jpg"
 amazonUrl: "https://amzn.to/4xOFIgY"
 rating: 5
+verdict: ship
+rank: 2
+rankNote: "Gentle enough for morning and night. Start here if retinoids have burned you before."
 pubDate: 2026-06-25
 draft: false
 ---

@@ -4,6 +4,9 @@ description: "A gentle retinal serum that's visibly softened my wrinkles."
 image: "https://m.media-amazon.com/images/I/51utpRckeQL._SL1500_.jpg"
 amazonUrl: "https://amzn.to/3Ssqtdy"
 rating: 5
+verdict: ship
+rank: 1
+rankNote: "The only one where I saw fine lines actually soften. If you buy one, buy this."
 pubDate: 2026-06-25
 draft: false
 ---

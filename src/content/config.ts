@@ -13,6 +13,14 @@ const posts = defineCollection({
     amazonUrl: z.string().url(),
     price: z.string().optional(),
     rating: z.number().min(1).max(5).optional(),
+    // The verdict. Set this explicitly — don't infer it from the star rating,
+    // or the site can never actually say Skip.
+    verdict: z.enum(['ship', 'skip']).optional(),
+    // Position within a ranked comparison, e.g. the K-beauty serum trio.
+    // Ranked posts sort ahead of unranked ones on the homepage.
+    rank: z.number().int().min(1).optional(),
+    // One line explaining why it landed at that position.
+    rankNote: z.string().optional(),
     pubDate: z.date(),
     // Hide a draft from the homepage by setting draft: true
     draft: z.boolean().default(false),

@@ -4,6 +4,9 @@ description: "A vitamin C serum that's brightened and evened out my skin."
 image: "https://m.media-amazon.com/images/I/51CF4EwEADL._SL1200_.jpg"
 amazonUrl: "https://amzn.to/4eHzyGR"
 rating: 5
+verdict: ship
+rank: 3
+rankNote: "Real brightening — but it changes how skin looks, not how it behaves. The one I'd buy last."
 pubDate: 2026-06-25
 draft: false
 ---
