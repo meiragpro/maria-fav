@@ -16,9 +16,9 @@ const { title, description, image, amazonUrl, price, rating } = post.data;
 const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
 ---
 
-<Layout title={`${title} — Maria's Fav`} description={description}>
+<Layout title={`${title} — Ship or Skip`} description={description}>
   <article class="post">
-    <a href="/" class="back">← Back to the edit</a>
+    <a href="/" class="back">← Back to the verdicts</a>
 
     <header class="post-head">
       {stars && <p class="stars">{stars}</p>}

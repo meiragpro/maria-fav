@@ -4,8 +4,8 @@ interface Props {
   description?: string;
 }
 const {
-  title = "Maria's Fav",
-  description = "Maria's favorite products — a curated edit of things I genuinely love.",
+  title = "Ship or Skip",
+  description = "Real products, actually tested. Every one gets a verdict — Ship or Skip, no maybes.",
 } = Astro.props;
 ---
 
@@ -27,11 +27,11 @@ const {
   </head>
   <body>
     <header class="site-header">
-      <a href="/" class="logo">Maria's Fav <span class="heart">♡</span></a>
+      <a href="/" class="logo">Ship <span class="or">or</span> Skip</a>
       <span class="rule" aria-hidden="true"></span>
-      <p class="tagline">A curated edit of things I genuinely love</p>
+      <p class="tagline">Real products, actually tested — no maybes</p>
       <nav class="site-nav">
-        <a href="/">The Edit</a>
+        <a href="/">The Verdicts</a>
         <a href="/about/">About</a>
       </nav>
     </header>
@@ -48,11 +48,11 @@ const {
         no extra cost to you.
       </p>
       <nav class="footer-nav">
-        <a href="/">The Edit</a>
+        <a href="/">The Verdicts</a>
         <a href="/about/">About</a>
         <a href="/privacy/">Privacy Policy</a>
       </nav>
-      <p class="copyright">© {new Date().getFullYear()} Maria's Fav · Made with care</p>
+      <p class="copyright">© {new Date().getFullYear()} Ship or Skip · Tested, not guessed</p>
     </footer>
 
     <style is:global>
@@ -101,10 +101,15 @@ const {
         color: var(--ink);
         letter-spacing: 0.5px;
       }
-      .logo .heart {
+      .logo .or {
         color: var(--accent);
-        font-size: 1.6rem;
+        font-family: var(--sans);
+        font-size: 1.1rem;
+        font-weight: 500;
+        font-style: italic;
+        letter-spacing: 0;
         vertical-align: middle;
+        margin: 0 0.15rem;
       }
       .tagline {
         font-family: var(--serif);

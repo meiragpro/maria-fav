@@ -15,7 +15,7 @@ const stars = rating ? "★".repeat(rating) + "☆".repeat(5 - rating) : null;
 <article class="card">
   <a href={href} class="thumb-link">
     <img src={image} alt={title} loading="lazy" />
-    {rating === 5 && <span class="badge">♡ Maria's pick</span>}
+    {rating === 5 && <span class="badge">Ship</span>}
   </a>
   <div class="body">
     {stars && <p class="stars">{stars}</p>}

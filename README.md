@@ -1,4 +1,4 @@
-# Maria's Fav
+# Ship or Skip
 
 A simple affiliate blog built with [Astro](https://astro.build) and hosted free on Netlify.
 
@@ -7,7 +7,7 @@ A simple affiliate blog built with [Astro](https://astro.build) and hosted free 
 ## Run it locally
 
 ```powershell
-cd C:\Users\Gui\maria-fav
+cd C:\Users\Gprom\maria-fav
 npm install        # first time only
 npm run dev        # preview at http://localhost:4321
 ```
