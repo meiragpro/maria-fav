@@ -24,5 +24,4 @@ has that healthy glow. It's become a staple in my evening routine.
 
 At night, as part of my routine. A little goes a long way.
 
-It's on a **Prime Day deal** right now, so it's a great time to try it. Tap the
-button above to check the current price on Amazon. 👆
+Tap the button above to check the current price on Amazon. 👆

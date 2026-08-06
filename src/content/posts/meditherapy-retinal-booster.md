@@ -26,5 +26,4 @@ looks firmer and more radiant for it.
 Morning and night, layered with my other two serums. The three together are my
 current skincare obsession.
 
-It's on a **Prime Day deal** right now, so it's a great time to try it. Tap the
-button above to check the current price on Amazon. 👆
+Tap the button above to check the current price on Amazon. 👆

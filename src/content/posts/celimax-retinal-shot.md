@@ -24,5 +24,4 @@ become one of those products I don't want to run out of.
 Every night, as part of my evening routine. Consistency is what made the difference
 for me.
 
-It's on a **Prime Day deal** right now, so it's a great time to try it. Tap the
-button above to check the current price on Amazon. 👆
+Tap the button above to check the current price on Amazon. 👆
